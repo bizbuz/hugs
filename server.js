@@ -23,6 +23,8 @@ app.use(bodyParser.json());
 // Add routes, both API and view
 app.use(routes);
 
+app.use(express.static(process.cwd() + '/public'));
+
 // Connect to the SQL DB
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
