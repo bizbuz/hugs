@@ -3,7 +3,7 @@
 function AddClick(event)
 {
 	console.log("I'm in AddClick");
-	$.ajax({url: 'api/addItem', type: 'GET', 
+	$.ajax({url: 'http://localhost:8080/api/addItem', type: 'GET', 
 		data: {"houseID":"1234","name":"milk","quantity":"1","upcCode":"","note":"","marked":false,"imageURL":""}}).
 
       then (function(result){

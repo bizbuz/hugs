@@ -4,7 +4,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const sql = require("mysql");
-const routes = require("./routes");
+const routes = require("./routes/api_routes");
 
 //SETUP EXPRESS APP
 const app = express();
