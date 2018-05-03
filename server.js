@@ -3,7 +3,7 @@
 //DEPENDENCIES
 const express = require("express");
 const bodyParser = require("body-parser");
-const sql = require("mySql");
+const sql = require("mysql");
 const routes = require("./routes");
 
 //SETUP EXPRESS APP
@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 8080;
 
 //Require the models for syncing 
 var db = require("./models");
+app.use(express.static(process.cwd() + '/public'));
+
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,7 +25,7 @@ app.use(bodyParser.json());
 // Add routes, both API and view
 app.use(routes);
 
-app.use(express.static(process.cwd() + '/public'));
+//app.use(express.static(process.cwd() + '/public'));
 
 // Connect to the SQL DB
 db.sequelize.sync({ force: true }).then(function() {
