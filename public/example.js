@@ -4,16 +4,19 @@ function AddClick(event)
 {
 	console.log("I'm in AddClick");
 	$.ajax({url: 'http://localhost:8080/api/addItem', type: 'GET', 
-		data: {"houseID":"1234","name":"milk","quantity":"1","upcCode":"","note":"","marked":false,"imageURL":""}}).
+		data: {"houseID":"1234","name":"milk",
+    "quantity":"1","upcCode":"","note":"","marked":false,"imageURL":""}}).
 
-      then (function(result){
+      done (function(result){
         console.log("Did addItem");
        
       }).
-      catch()
+      fail(function(data)
       {
       	console.log("There was an error");
-      };
+        console.log("status:  " + data.status);
+        console.log("status text:  " + data.statusText);
+      });
 
 }
 
@@ -21,33 +24,40 @@ function EditClick(event)
 {
 	console.log("I'm in EditClick");
 	$.ajax({url: 'api/editItem', type: 'GET', 
-		data: {"houseID":"1234","name":"milk","quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
+		data: {"houseID":"1234","name":"milk",
+    "quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
 
-      then (function(result){
+      done (function(result){
         console.log("Did editItem");
        
       }).
-      catch()
+      fail(function(data)
       {
       	console.log("There was an error");
+        console.log("status:  " + data.status);
+        console.log("status text:  " + data.statusText);
       	
-      };
+      });
 }
 
 function DeleteClick(event)
 {
 	console.log("I'm in DeleteClick");
 	$.ajax({url: 'api/deleteItem', type: 'GET', 
-		data: {"houseID":"1234","name":"milk","quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
+		data: {"houseID":"1234","name":"milk",
+    "quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
 
-      then (function(result){
+      done (function(result){
         console.log("Did deleteItem");
        
       }).
-      catch()
+      fail( function(data)
       {
       	console.log("There was an error");
-      };
+        console.log("status:  " + data.status);
+        console.log("status text:  " + data.statusText);
+        
+      });
 
 }
 
