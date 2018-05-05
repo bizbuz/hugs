@@ -33,8 +33,7 @@
     "webpack-dev-server": "^2.11.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "start-react": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
