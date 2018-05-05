@@ -100,13 +100,15 @@ class List extends React.Component {
                         </th>
                     </tr>
                     <tr>
-                        <th className="eight wide">Description</th>
-                        <th>name</th>
-                        <th>brand</th>
+                        <th className="eight wide"></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <p>This is the List Page</p>
+                    <button type="button" id="addBtn">Add List</button>
+                    <button type="button" id="editBtn">Edit List</button>
+                    <button type="button" id="deleteBtn">Delete Button</button>
                     {foodRows}
                     </tbody>
                 </table>
