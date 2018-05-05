@@ -281,3 +281,10 @@ buck-out/
 
 
 # End of https://www.gitignore.io/api/linux,jetbrains,reactnative
+.idea/dbnavigator.xml
+.idea/inspectionProfiles/
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/preferred-vcs.xml
+.idea/vcs.xml
