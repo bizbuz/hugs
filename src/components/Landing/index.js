@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const LandingPage = () =>
   <div className="jumbotron">
     <h1>Landing</h1>
