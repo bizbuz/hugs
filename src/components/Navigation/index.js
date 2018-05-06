@@ -40,10 +40,10 @@ const NavigationNonAuth = () =>
     </Navbar.Brand>
   </Navbar.Header>
   <Nav>
-  <ul>
+
     <li><Link to={routes.LANDING}>Landing</Link></li>
     <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
-  </ul>
+  
      </Nav>
 </Navbar>;
 export default Navigation;
