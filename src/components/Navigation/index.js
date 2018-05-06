@@ -32,9 +32,18 @@ const NavigationAuth = () =>
 </Navbar>;
 
 const NavigationNonAuth = () =>
+
+<Navbar>
+  <Navbar.Header>
+    <Navbar.Brand>
+      <a href="#home">Shopin</a>
+    </Navbar.Brand>
+  </Navbar.Header>
+  <Nav>
   <ul>
     <li><Link to={routes.LANDING}>Landing</Link></li>
     <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
   </ul>
-
+     </Nav>
+</Navbar>;
 export default Navigation;
