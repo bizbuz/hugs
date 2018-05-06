@@ -4,6 +4,8 @@ import {
   withRouter,
 } from 'react-router-dom';
 
+import { Button } from 'react-bootstrap';
+
 import { auth, db } from '../../firebase';
 import * as routes from '../../constants/routes';
 
@@ -105,9 +107,9 @@ class SignUpForm extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button bsStyle="primary" disabled={isInvalid} type="submit">
           Sign Up
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
       </form>
