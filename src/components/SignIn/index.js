@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import { Button } from 'react-bootstrap';
+
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { auth } from '../../firebase';
@@ -78,9 +80,9 @@ class SignInForm extends Component {
           type="password"
           placeholder="Password"
         />
-        <button className="btn btn-primary" disabled={isInvalid} type="submit">
+        <Button bsStyle="info" className="btn btn-primary" disabled={isInvalid} type="submit">
           Sign In
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
       </form>
