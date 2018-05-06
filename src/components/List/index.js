@@ -2,6 +2,8 @@ import React, {Component} from "react";
 //import * as householdApi from '../../../routes/api/household';
 //import * as userApi from '../../../routes/api/user';
 
+import { Button } from 'react-bootstrap';
+
 //import Client from "./Client";
 
 const MATCHING_ITEM_LIMIT = 25;
@@ -106,9 +108,9 @@ class List extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <button type="button" id="addBtn">Add List</button>
-                    <button type="button" id="editBtn">Edit List</button>
-                    <button type="button" id="deleteBtn">Delete Button</button>
+                    <Button bsStyle="info" type="button" id="addBtn">Add Item</Button>
+                    <Button bsStyle="primary" type="button" id="editBtn">Edit Item</Button>
+                    <Button bsStyle="danger" type="button" id="deleteBtn">Delete Item</Button>
                     {foodRows}
                     </tbody>
                 </table>
