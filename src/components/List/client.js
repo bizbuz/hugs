@@ -1,5 +1,5 @@
-function search(query, cb) {
-    return fetch(`api/food?q=${query}`, {
+function search(query) {
+    return fetch(`api/addItem`, {
         accept: "application/json"
     })
         .then(checkStatus)
@@ -16,6 +16,21 @@ function checkStatus(response) {
     error.response = response;
     console.log(error); // eslint-disable-line no-console
     throw error;
+}
+
+function AddClick(event){
+    console.log("I'm in AddClick");
+    $.ajax({url: 'http://localhost:8080/api/addItem', type: 'GET', 
+        data: {"houseID":"1234","name":"milk","quantity":"1","upcCode":"","note":"","marked":false,"imageURL":""}}).
+
+      then (function(result){
+        console.log("Did addItem");
+       
+      }).
+      catch()
+      {
+        console.log("There was an error");
+      };
 }
 
 function parseJSON(response) {
