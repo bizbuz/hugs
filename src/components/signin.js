@@ -7,8 +7,8 @@ import { auth } from '../firebase/index';
 import * as routes from '../constants/routes';
 
 const SignInPage = ({ history }) =>
-  <div>
-    <h1>SignIn</h1>
+  <div className="jumbotron">
+    <h1>Sign In</h1>
     <SignInForm history={history} />
     <PasswordForgetLink />
     <SignUpLink />
@@ -78,7 +78,7 @@ class SignInForm extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button className="btn btn-primary" disabled={isInvalid} type="submit">
           Sign In
         </button>
 
