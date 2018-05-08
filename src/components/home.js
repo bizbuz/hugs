@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-import withAuthorization from '../Session/withAuthorization';
-import { db } from '../../firebase';
+import withAuthorization from './Session/withAuthorization';
+import { db } from '../firebase/index';
 
 class HomePage extends Component {
   constructor(props) {
@@ -41,7 +40,7 @@ const UserList = ({ users }) =>
       <div key={key}>{users[key].username}</div>
     )}
 
-    
+
   </div>
 
 const authCondition = (authUser) => !!authUser;
