@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import $ from 'jquery'
 //import * as householdApi from '../../../routes/api/household';
 //import * as userApi from '../../../routes/api/user';
 
@@ -7,16 +8,16 @@ import React, {Component} from "react";
 const MATCHING_ITEM_LIMIT = 25;
 
 class List extends React.Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             item: [],
             showRemoveIcon: false,
             searchValue: ""
         };
-    } 
-    
-    handleSearchChange(e){
+    }
+
+    handleSearchChange(e) {
         const value = e.target.value;
 
         this.setState({
@@ -32,17 +33,17 @@ class List extends React.Component {
             this.setState({
                 showRemoveIcon: true
             });
-/*
-            Client.search(value, foods => {
-                this.setState({
-                    item: foods.slice(0, MATCHING_ITEM_LIMIT)
-                });
-            });
-            */
+            /*
+                        Client.search(value, foods => {
+                            this.setState({
+                                item: foods.slice(0, MATCHING_ITEM_LIMIT)
+                            });
+                        });
+                        */
         }
     };
 
-    handleSearchCancel(){
+    handleSearchCancel() {
         this.setState({
             item: [],
             showRemoveIcon: false,
@@ -50,7 +51,8 @@ class List extends React.Component {
         });
     };
 
-    componentDidMount(){
+
+    componentDidMount() {
         // let user = userApi.GetById('11111')[0];
         // let house = householdApi.GetById(user.houseId)[0];
 
@@ -60,10 +62,65 @@ class List extends React.Component {
         //     item: house.shoppingList
         // })
     };
-    
+
+    addItem = (click) => {
+        console.log("I'm in AddClick");
+        $.ajax({
+            url: 'http://localhost:8080/api/addItem', type: 'GET',
+            data: {
+                "houseID": "1234", "name": "milk",
+                "quantity": "1", "upcCode": "", "note": "", "marked": false, "imageURL": ""
+            }
+        }).done(function (result) {
+            console.log("Did addItem");
+
+        }).fail(function (data) {
+            console.log("There was an error");
+            console.log("status:  " + data.status);
+            console.log("status text:  " + data.statusText);
+        });
+
+    };
+    editItem = (click) => {
+        console.log("I'm in EditClick");
+        $.ajax({url: 'api/editItem', type: 'GET',
+            data: {"houseID":"1234","name":"milk",
+                "quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
+
+        done (function(result){
+            console.log("Did editItem");
+
+        }).
+        fail(function(data)
+        {
+            console.log("There was an error");
+            console.log("status:  " + data.status);
+            console.log("status text:  " + data.statusText);
+
+        });
+    };
+    deleteItem= (click) => {
+        console.log("I'm in DeleteClick");
+        $.ajax({url: 'api/deleteItem', type: 'GET',
+            data: {"houseID":"1234","name":"milk",
+                "quantity":"2","upcCode":"","note":"","marked":false,"imageURL":""}}).
+
+        done (function(result){
+            console.log("Did deleteItem");
+
+        }).
+        fail( function(data)
+        {
+            console.log("There was an error");
+            console.log("status:  " + data.status);
+            console.log("status text:  " + data.statusText);
+
+        });
+    };
+
     render() {
-        const { showRemoveIcon, item } = this.state;
-        const removeIconStyle = showRemoveIcon ? {} : { visibility: "hidden" };
+        const {showRemoveIcon, item} = this.state;
+        const removeIconStyle = showRemoveIcon ? {} : {visibility: "hidden"};
 
         const foodRows = item.map((food, idx) => (
             <tr key={idx} onClick={() => this.props.onFoodClick(food)}>
@@ -89,7 +146,7 @@ class List extends React.Component {
                                         value={this.state.searchValue}
                                         onChange={this.handleSearchChange}
                                     />
-                                    <i className="search icon" />
+                                    <i className="search icon"/>
                                 </div>
                                 <i
                                     className="remove icon"
@@ -106,9 +163,9 @@ class List extends React.Component {
                     </tr>
                     </thead>
                     <tbody>
-                    <button type="button" id="addBtn">Add List</button>
-                    <button type="button" id="editBtn">Edit List</button>
-                    <button type="button" id="deleteBtn">Delete Button</button>
+                    <button type="button" id="addBtn" onClick={this.addItem}>Add List</button>
+                    <button type="button" id="editBtn" onClick={this.editItem}>Edit List</button>
+                    <button type="button" id="deleteBtn" onClick={this.deleteItem}>Delete Button</button>
                     {foodRows}
                     </tbody>
                 </table>
