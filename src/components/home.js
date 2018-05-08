@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
-import withAuthorization from '../Session/withAuthorization';
-import { db } from '../../firebase';
+import withAuthorization from './Session/withAuthorization';
+import { db } from '../firebase/index';
 
 class HomePage extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class HomePage extends Component {
 
     return (
       <div>
-        <h1>Home</h1>
+        <h1 className="jumbotron">Home</h1>
         <p>The Home Page is accessible by every signed in user.</p>
 
         { !!users && <UserList users={users} /> }
@@ -34,14 +33,14 @@ class HomePage extends Component {
 
 const UserList = ({ users }) =>
   <div>
-    <h2>List of Usernames of Users</h2>
+    <h2>List of Usernames</h2>
     <p>(Saved on Sign Up in Firebase Database)</p>
 
     {Object.keys(users).map(key =>
       <div key={key}>{users[key].username}</div>
     )}
 
-    
+
   </div>
 
 const authCondition = (authUser) => !!authUser;

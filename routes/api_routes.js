@@ -6,10 +6,26 @@ let db = require('../models');
 var app_routes = express.Router();
 
 
-app_routes.get("/api/addItem/", function(req, res) 
+
+app_routes.get("/api/addItem/", function(req, res)
 {
     // Did we hit the route?
     console.log("We are in the api_routes/addItem route.");
+    res.send("hey, you - this is the addItem api route");
+});
+
+app_routes.get("/api/editItem/", function(req, res)
+{
+    // Did we hit the route?
+    console.log("We are in the api_routes/editItem route.");
+    res.send("hey, you - this is the editItem api route");
+});
+
+app_routes.get("/api/deleteItem/", function(req, res)
+{
+    // Did we hit the route?
+    console.log("We are in the api_routes/deleteItem route.");
+    res.send("hey, you - this is the deleteItem api route");
 });
 
    
